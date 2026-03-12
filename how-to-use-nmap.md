@@ -2,13 +2,13 @@
   sudo apt update && sudo apt install nmap
 
 #  BASIC PORT SCANNING
- TCP SYN scan (default, root required)
+  # TCP SYN scan (default, root required)
   nmap -sS target
- TCP Connect scan (no root)
+  # TCP Connect scan (no root)
   nmap -sT target
- UDP scan
+  # UDP scan
   nmap -sU target
- Top 1000 ports
+  # Top 1000 ports
   nmap --top-ports 1000 target
      
 # TARGET SPECIFICATION
