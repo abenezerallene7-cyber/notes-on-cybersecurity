@@ -1,65 +1,65 @@
 # INSTALLATION
   sudo apt update && sudo apt install nmap
 
-     BASIC PORT SCANNING
-# TCP SYN scan (default, root required)
+#  BASIC PORT SCANNING
+ TCP SYN scan (default, root required)
   nmap -sS target
-# TCP Connect scan (no root)
+ TCP Connect scan (no root)
   nmap -sT target
-# UDP scan
+ UDP scan
   nmap -sU target
-# Top 1000 ports
+ Top 1000 ports
   nmap --top-ports 1000 target
      
-     TARGET SPECIFICATION
-# Single host
+# TARGET SPECIFICATION
+ Single host
   nmap 192.168.1.1
-# IP range
+ IP range
   nmap 192.168.1.1-254
-# CIDR
+ CIDR
   nmap 192.168.1.0/24
-# File of targets
- nmap -iL targets.txt
-# Exclude hosts
- nmap 192.168.1.0/24 --exclude 192.168.1.1
+ File of targets
+  nmap -iL targets.txt
+ Exclude hosts
+  nmap 192.168.1.0/24 --exclude 192.168.1.1
     
-    SERVICE VERSION DETECTION
- nmap -sV target
- nmap -sV --version-intensity 9 target   # Max intensity
+ # SERVICE VERSION DETECTION
+  nmap -sV target
+  nmap -sV --version-intensity 9 target   # Max intensity
     
-     OS FINGERPRINTING
- nmap -O target
- nmap -O --osscan-guess target
+ # OS FINGERPRINTING
+  nmap -O target
+  nmap -O --osscan-guess target
 
-     AGGRESSIVE SCANNING
+ # AGGRESSIVE SCANNING
   nmap -A target  # it shows OS, version, script, traceroute
 
-       NSE SCRIPT
-# Default scripts
-  nmap --script=default target
-# Vulnerability scripts
-  nmap --script=vuln target
-# Specific script
-  nmap --script http-enum target
+ # NSE SCRIPT
+  Default scripts
+   nmap --script=default target
+  Vulnerability scripts
+   nmap --script=vuln target
+  Specific script
+   nmap --script http-enum target
 
-    OUTPUT FORMATS
-nmap -oN normal.txt target  
-nmap -oX xml.xml target   
-nmap -oG grepable.txt target 
-nmap -oA allformats target    
+# OUTPUT FORMATS
+  nmap -oN normal.txt target  
+  nmap -oX xml.xml target   
+  nmap -oG grepable.txt target 
+  nmap -oA allformats target    
 
-    EVASION TECHNIQUE
-# Fragment packets
+# EVASION TECHNIQUE
+ Fragment packets
   nmap -f target
-# MTU size
+ MTU size
   nmap --mtu 24 target
-# Decoy
+ Decoy
   nmap -D RND:10 target
-# Source IP spoof
+ Source IP spoof
   nmap -S 192.168.1.100 target
-# Idle scan
+ Idle scan
   nmap -sI zombie_host target
-# Timing templates
+ Timing templates
   nmap -T4 target  # Aggressive
   nmap --scan-delay 1s target
   
