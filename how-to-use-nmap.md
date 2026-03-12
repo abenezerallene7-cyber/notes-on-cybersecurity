@@ -8,54 +8,33 @@
   nmap --top-ports 1000 target  # Top 1000 ports
      
 # TARGET SPECIFICATION
- Single host
-  nmap 192.168.1.1
- IP range
-  nmap 192.168.1.1-254
- CIDR
-  nmap 192.168.1.0/24
- File of targets
-  nmap -iL targets.txt
- Exclude hosts
-  nmap 192.168.1.0/24 --exclude 192.168.1.1
+ 
+  nmap 192.168.1.1 # Single host
+  nmap 192.168.1.1-254  # IP range
+  nmap 192.168.1.0/24  # CIDR
+  nmap -iL targets.txt  #File of targets
+  nmap 192.168.1.0/24 --exclude 192.168.1.1  #Exclude hosts
     
  # SERVICE VERSION DETECTION
-  nmap -sV target
+  nmap -sV target # Service version detection
   nmap -sV --version-intensity 9 target   # Max intensity
     
  # OS FINGERPRINTING
-  nmap -O target
-  nmap -O --osscan-guess target
+  nmap -O target # OS fingerprinting
+  nmap -O --osscan-guess target  # OS fingerprinting with guess
+
 
  # AGGRESSIVE SCANNING
   nmap -A target  # it shows OS, version, script, traceroute
 
  # NSE SCRIPT
-  Default scripts
-   nmap --script=default target
-  Vulnerability scripts
-   nmap --script=vuln target
-  Specific script
-   nmap --script http-enum target
+   nmap --script=default target  # Default scripts
+   nmap --script=vuln target  # Vulnerability scripts
+   nmap --script http-enum target # Specific script
 
-# OUTPUT FORMATS
-  nmap -oN normal.txt target  
-  nmap -oX xml.xml target   
-  nmap -oG grepable.txt target 
-  nmap -oA allformats target    
-
-# EVASION TECHNIQUE
- Fragment packets
-  nmap -f target
- MTU size
-  nmap --mtu 24 target
- Decoy
-  nmap -D RND:10 target
- Source IP spoof
-  nmap -S 192.168.1.100 target
- Idle scan
-  nmap -sI zombie_host target
- Timing templates
-  nmap -T4 target  # Aggressive
-  nmap --scan-delay 1s target
+ # OUTPUT FORMATS
+   nmap -oN normal.txt 192.168.1.1     # Human-readable output
+   nmap -oX xml.xml 192.168.1.1        # XML output
+   nmap -oG grepable.txt 192.168.1.1   # Grepable output
+   nmap -oA allformats 192.168.1.1     # All output formats
   
